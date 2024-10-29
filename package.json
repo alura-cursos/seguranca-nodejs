@@ -11,6 +11,7 @@
   "author": "Raphael Lucas Girao de Lima",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.1",
     "express": "^4.18.2",
     "path": "^0.12.7",
