@@ -1,3 +1,6 @@
+const database = require('../models')
+const uuid = require('uuid')
+
 class PermissaoService {
   async cadastrar(dto) {
     const permissao = await database.permissoes.findOne({
