@@ -3,35 +3,31 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class usuarios extends Model {
+  class permissoes extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      usuarios.belongsToMany(models.roles,{
-        through: models.usuarios_roles,
-        foreignKey: 'usuario_id'
-      })
-      usuarios.belongsToMany(models.permissoes,{
+      permissoes.belongsToMany(models.usuarios,{
         through: models.usuarios_permissoes,
-        foreignKey: 'usuario_id'
+        as: 'permissoes_usuarios',
+        foreignKey: 'permissao_id'
+      })
+      permissoes.belongsToMany(models.roles,{
+        through: models.roles_permissoes,
+        as: 'permissoes_roles',
+        foreignKey: 'permissao_id'
       })
     }
   }
-  usuarios.init({
+  permissoes.init({
     nome: DataTypes.STRING,
-    email: DataTypes.STRING,
-    senha: DataTypes.STRING
+    descricao: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'usuarios',
-    defaultScope: {
-      attributes: {
-        exclude: ['senha']
-      }
-    }
+    modelName: 'permissoes',
   });
-  return usuarios;
+  return permissoes;
 };
