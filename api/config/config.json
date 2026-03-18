@@ -4,6 +4,7 @@
     "password": "123456",
     "database": "seguranca_nodejs_development",
     "host": "127.0.0.1",
+    "port": 5432,
     "dialect": "postgres"
   },
   "test": {
