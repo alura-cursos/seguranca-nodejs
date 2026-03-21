@@ -11,8 +11,11 @@
   "author": "Raphael Lucas Girao de Lima",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "body-parser": "^1.20.1",
+    "dotenv": "^17.2.0",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
     "path": "^0.12.7",
     "pg": "^8.8.0",
     "sequelize": "^6.26.0",
